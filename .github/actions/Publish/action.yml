@@ -1,4 +1,9 @@
-- name: publish artifacts
+name: 'Publish'
+description: 'Publish'
+runs:
+ using: 'composite'
+ steps:   
+    - name: publish artifacts
       uses: actions/upload-artifact@v4
       with:
           name: publish artifacts
