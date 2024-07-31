@@ -1,0 +1,8 @@
+name: 'teraform'
+description: 'fake terraform init'
+runs:
+ using: 'composite'
+ steps:
+   - name: terraform 
+     run: echo "this is for terraform action"
+     shell: bash

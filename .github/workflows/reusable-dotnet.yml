@@ -8,23 +8,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: checkout action
-      uses: actions/checkout@v4
-   
+    - name: checkout 
+      uses: MohithPilli/reusable-demo-workflows/.github/actions/checkout@master  
+
+    - name: terraform
+      uses: MohithPilli/reusable-demo-workflows/.github/actions/terraform@master
+    
+    - name: securityscan
+      uses: MohithPilli/reusable-demo-workflows/.github/actions/SecurityScan@master
 
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '8.0.x' # Adjust based on your .NET version
+      uses: MohithPilli/reusable-demo-workflows/.github/actions/SetUpDotNet@master
 
     - name: Restore dependencies
-      run: dotnet restore
+      uses: MohithPilli/reusable-demo-workflows/.github/actions/restore dependencies@master
 
-    - name: Build,Test and package
+    - name: Build
+      uses: MohithPilli/reusable-demo-workflows/.github/actions/build@master
+
+    - name: test
+      uses: MohithPilli/reusable-demo-workflows/.github/actions/test@master
+
+    - name: package
       uses: MohithPilli/reusable-demo-workflows/.github/actions/package@master
 
-    - name: upload artifacts
-      uses: actions/upload-artifact@v4
-      with:
-          name: artifact
-          path: bin/Release/net8.0
+    - name: publish artifacts
+      uses: MohithPilli/reusable-demo-workflows/.github/actions/Publish@master
+   
+    - name: deploy
+      uses: MohithPilli/reusable-demo-workflows/.github/actions/Deploy@master

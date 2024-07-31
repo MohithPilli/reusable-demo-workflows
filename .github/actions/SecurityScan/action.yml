@@ -1,0 +1,8 @@
+name: 'securityScan'
+description: 'fake security scan'
+runs:
+ using: 'composite'
+ steps:
+   - name: security 
+     run: echo "this is for security scan action"
+     shell: bash

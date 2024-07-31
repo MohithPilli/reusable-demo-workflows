@@ -1,0 +1,8 @@
+name: 'Deploy'
+description: 'fake deploy'
+runs:
+ using: 'composite'
+ steps:
+   - name: deploy 
+     run: echo "this is for deploy action"
+     shell: bash
